@@ -5,14 +5,15 @@ test.only('Assignment Test 1 - Client App', async ({ page }) => {
   await page.goto('https://rahulshettyacademy.com/client/#/auth/login');
   console.log(await page.title());
 
-  const nameOfUser = page.locator('[type="email"]');
-  const passwordOfUser = page.locator('[type="password"]');
-  const logInClick = page.locator('[type="submit"]');
+  const nameOfUser = page.getByPlaceholder('email@example.com');
+  const passwordOfUser = page.getByPlaceholder('enter your password');
+  const logInClick = page.getByRole('button', { name: 'Login' });
   const cardTitle = page.locator('.card-body b');
 
   const productName = 'ZARA COAT 3';
   const product = page.locator('.card-body');
 
+  await page.waitForLoadState('networkidle');
   await nameOfUser.fill('pipiiww@gmail.com');
   await passwordOfUser.fill('P@ssw0rd');
   await logInClick.click();
