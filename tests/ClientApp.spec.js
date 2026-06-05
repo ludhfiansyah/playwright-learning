@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('Assignment Test 1 - Client App', async ({ page }) => {
+test('Assignment Test 1 - Client App', async ({ page }) => {
   await page.goto('https://rahulshettyacademy.com/client/#/auth/login');
   console.log(await page.title());
 
@@ -70,6 +70,4 @@ test.only('Assignment Test 1 - Client App', async ({ page }) => {
 
   const orderIdDetails = await page.locator('.col-text').textContent();
   expect(orderId.includes(orderIdDetails)).toBeTruthy();
-
-  await page.pause();
 });

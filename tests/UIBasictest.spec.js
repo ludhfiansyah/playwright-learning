@@ -82,6 +82,5 @@ test('@Child windows handle', async ({ browser }) => {
   console.log(domain);
 
   await userName.fill(domain);
-  await page.pause();
   console.log(await userName.inputValue());
 });
