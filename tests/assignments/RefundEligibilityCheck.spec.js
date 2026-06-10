@@ -136,6 +136,4 @@ test('Group Ticket Booking is NOT Eligible for Refund', async ({ page }) => {
     await expect(page.locator('#refund-result')).toContainText('Not eligible for refund');
     // - Assert result contains Group bookings (3 tickets) are non-refundable
     await expect(page.locator('#refund-result')).toContainText('Group bookings (3 tickets) are non-refundable');
-
-    await page.pause();
 });
